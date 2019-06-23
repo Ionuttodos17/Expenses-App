@@ -1,0 +1,104 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>expenseForm</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form #g="ngForm" (ngSubmit)="onSubmit(g)">
+    <ion-list>
+
+      <ion-row>
+        <ion-col>
+          <button
+            ion-button
+            icon-left
+            small
+            type="button"
+            (click)="onGetPhoto()">
+            <ion-icon name="camera"></ion-icon>
+
+          </button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="imageUrl != ''" ngModel
+               required>
+        <ion-col>
+          <img [src]="imageUrl">
+        </ion-col>
+      </ion-row>
+
+      <ion-item>
+        <ion-label>
+          <ion-icon name="document" color="newColour" item-left big></ion-icon>
+        </ion-label>
+        <ion-input item-right
+                   placeholder="short description"
+                   [(ngModel)]="description"
+                   name="description"
+                   ngModel
+                   required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <ion-icon name="pricetag" color="newColour" item-left></ion-icon>
+        </ion-label>
+        <ion-input item-right
+                   type="number"
+                   placeholder="a price"
+                   [(ngModel)]="price"
+                   name="price"
+                   ngModel
+                   required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Expense Type</ion-label>
+
+        <ion-select [(ngModel)]="selected" name="expenseType" ngModel required>
+          <ion-option *ngFor="let item of expenseType" [value]="item">{{item}}</ion-option>
+        </ion-select>
+
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <ion-icon name="calendar" color="newColour" item-left></ion-icon>
+        </ion-label>
+        <ion-input item-right
+                   type="date"
+                   placeholder="date"
+                   [(ngModel)]="date"
+                   name="myDate"
+                   ngModel
+                   required></ion-input>
+ <!--       <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="date" name="myDate" ngModel required ></ion-datetime> -->
+      </ion-item>
+
+    </ion-list>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-1>
+        </ion-col>
+        <ion-col>
+          <button ion-button
+                  color="secondary"
+                  block
+                  type="submit"
+                  [disabled]="!g.valid ">Save changes
+          </button>
+        </ion-col>
+        <ion-col col-1>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+</ion-content>

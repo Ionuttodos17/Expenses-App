@@ -1,0 +1,61 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-grid>
+      <ion-row>
+        <ion-buttons>
+
+          <ion-col col-7>FROM DATE:{{beginDate}}</ion-col>
+          <ion-col col-5>TOTAL:{{price}}</ion-col>
+
+        </ion-buttons>
+      </ion-row>
+    </ion-grid>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!-- Real floating action button, fixed. It will not scroll with the content -->
+  <ion-fab top right>
+    <button ion-fab mini color="secondary"><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list>
+      <button ion-fab (click)="onLoadNewJourney()"><ion-icon name="car"></ion-icon></button>
+      <button ion-fab (click)="onLoadNewExpense()"><ion-icon name="pricetag"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+
+  <ion-card *ngFor="let entrie of allEntries; let i = index" (click)="doSomething()">
+    <ion-card-content>
+        <ion-row>
+          <ion-col col-2>
+            <img src="{{entrie.imageURL}}">
+
+          </ion-col>
+
+        <ion-col col-4>
+          {{entrie.date}}
+        </ion-col>
+          <ion-col col-1></ion-col>
+
+      <ion-col col-5>
+        Total=£{{(entrie.price)||((entrie.distance)*0.11).toFixed(2)}}
+
+      </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons end>
+      <button ion-button icon-end color="royal" (click)="onFinnishClaim()">
+        Finnish Claim
+        <ion-icon name="basket"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,50 @@
+<ion-menu [content]="nav">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Menu
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+
+    <ion-list>
+      <ion-list>
+        <button ion-item (click)="onLoad(loadHomePage)">
+          <ion-icon color="newColour" name="home" item-left small></ion-icon>
+          Home
+        </button>
+      </ion-list>
+
+      <ion-list>
+        <ion-list-header>
+          Settings
+        </ion-list-header>
+        <button ion-item (click)="onLoad(accSettingsPage)">
+          <ion-icon color="newColour" name="settings" item-left small></ion-icon>
+          Account Settings
+        </button>
+        <button ion-item (click)="onLoad(linkToBusinessPage)">
+          <ion-icon color="newColour" name="people" item-left small></ion-icon>
+          Link to Business
+        </button>
+      </ion-list>
+      <ion-list>
+        <button ion-item (click)="onLoad(loadAboutPage)">
+          <ion-icon color="newColour" name="information" item-left large></ion-icon>
+          About
+        </button>
+      </ion-list>
+
+    </ion-list>
+
+  </ion-content>
+</ion-menu>
+
+
+<ion-nav [root]="rootPage" #nav></ion-nav>
+
+
+
+
+

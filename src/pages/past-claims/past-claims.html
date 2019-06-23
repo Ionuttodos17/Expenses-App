@@ -1,0 +1,53 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>past-claims</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card *ngFor="let claim of allClaims; let i = index">
+    <ion-card-header>
+      <p class="p1"> # {{i+1}}</p>
+      <p class="p2">From Date: {{claim[claim.length-1].date}}</p>
+      <p class="p2">To Date: {{claim[0].date}}</p>
+    </ion-card-header>
+    <ion-card-content (click)="openViewClaim(claim, i)">
+
+      <ion-row class="fooz">
+        <ion-col col-sm >
+          No of Entries:
+        </ion-col>
+        <ion-col col-sm text-end>{{claim.length}}</ion-col>
+      </ion-row>
+
+      <ion-row class="fooz">
+        <ion-col col-sm >
+          No of Miles:
+        </ion-col>
+        <ion-col col-sm text-end>{{this.calculateClaimDistance(i).toFixed(2)}} miles</ion-col>
+      </ion-row>
+
+      <ion-row class="fooz">
+        <ion-col col-sm-8 >
+          Total Value:
+        </ion-col>
+        <ion-col col-sm-4 text-end>£ {{this.calculateClaimTotal(i)}}</ion-col>
+      </ion-row>
+
+    </ion-card-content>
+
+<ion-row>
+    <ion-item>
+      <button ion-button color="pdf" small round item-right type="button" (click)="createPDF(claim, i)">Create PDF</button>
+      <button ion-button color="delete" small round item-left type="button" (click)="deleteClaim(claim, i)">Delete</button>
+    </ion-item>
+</ion-row>
+
+  </ion-card>
+
+</ion-content>

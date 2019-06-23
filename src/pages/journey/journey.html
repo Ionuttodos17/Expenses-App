@@ -1,0 +1,110 @@
+
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Set the Journey</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!--
+    <div id="floating-panel">
+      <b>Start: </b>
+      <ion-item>
+        <ion-input left float-left  [(ngModel)]="start" id="start" (change)="calculateAndDisplayRoute()"></ion-input>
+      </ion-item>
+      <b>End: </b>
+      <ion-item>
+        <ion-input left float-left [(ngModel)]="end" id="end" (change)="calculateAndDisplayRoute()"></ion-input>
+      </ion-item><br>
+      <ion-item>
+        <b>distance: {{distance}}</b>
+      </ion-item>
+    </div>
+    <div #map id="map"></div>
+
+  -->
+    <div #map id="map"></div>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <ion-list>
+
+        <ion-item>
+          <ion-label floating>From</ion-label>
+          <ion-input
+            type="text"
+            [(ngModel)]="start"
+            name="start"
+            ngModel
+            required
+            (change)="calculateAndDisplayRoute()"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>To</ion-label>
+          <ion-input
+
+            [(ngModel)]="end"
+            name="end"
+            ngModel
+            required
+            (change)="calculateAndDisplayRoute()"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Short Description</ion-label>
+          <ion-textarea
+            name="description"
+            ngModel
+            required></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Distance</ion-label>
+          <ion-textarea
+            [(ngModel)]="distance"
+            name="distance"
+            ngModel
+            required></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Date</ion-label>
+          <ion-input item-right
+                     type="date"
+                     placeholder="date"
+                     [(ngModel)]="myDate"
+                     name="myDate"
+                     ngModel
+                     required></ion-input>
+ <!--         <ion-datetime
+            [(ngModel)]="myDate"
+            displayFormat="MM/DD/YYYY"
+            ngModel
+            name ="myDate"
+            required></ion-datetime>   -->
+        </ion-item>
+
+      </ion-list>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button
+              ion-button
+              color="secondary"
+              block
+              type="submit"
+              [disabled]="!f.valid ">
+              Save Journey
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+</ion-content>
+
+

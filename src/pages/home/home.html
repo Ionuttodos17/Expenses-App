@@ -1,0 +1,103 @@
+
+<ion-header>
+
+  <ion-navbar >
+<!--    color="headerBackground"> -->
+
+    <ion-buttons left>
+      <button ion-button icon-only (click)="onOpenMenu()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>My Expenses</ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <br>
+
+    <ion-card (click)="openPastClaims()">
+      <ion-card-header>
+        <p class="p1">Past Claims</p>
+        <p class="p2">From Date: {{fromDateClaims}}</p>
+      </ion-card-header>
+      <ion-card-content>
+
+          <ion-row class="fooz">
+            <ion-col col-sm >
+              No of Claims:
+            </ion-col>
+            <ion-col col-sm text-end>{{noOfEntriesClaims}}</ion-col>
+          </ion-row>
+
+          <ion-row class="fooz">
+            <ion-col col-sm >
+              No of Miles:
+            </ion-col>
+            <ion-col col-sm text-end>{{totalMileageClaims}} miles</ion-col>
+          </ion-row>
+
+          <ion-row class="fooz">
+            <ion-col col-sm-8 >
+              Total Value:
+            </ion-col>
+            <ion-col col-sm-4 text-end>£ {{totalClaims}}</ion-col>
+          </ion-row>
+
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card (click)="openCurrentClaim()">
+      <ion-card-header>
+        <p class="p1">Current Claim</p>
+        <p class="p2">From Date: {{fromDateClaim}}</p>
+      </ion-card-header>
+      <ion-card-content>
+
+        <ion-row class="fooz">
+          <ion-col col-sm >
+            No of Entries:
+          </ion-col>
+          <ion-col col-sm text-end>{{noOfEntriesClaim}}</ion-col>
+        </ion-row>
+
+        <ion-row class="fooz">
+          <ion-col col-sm >
+            No of Miles:
+          </ion-col>
+          <ion-col col-sm text-end>{{totalMileageClaim}} miles</ion-col>
+        </ion-row>
+
+        <ion-row class="fooz">
+          <ion-col col-sm-8 >
+            Total Value:
+          </ion-col>
+          <ion-col col-sm-4 text-end>£ {{totalClaim}}</ion-col>
+        </ion-row>
+
+      </ion-card-content>
+    </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <p class="p1">Miles</p>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #lineCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <p class="p1">Spending</p>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #barCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <ion-grid>
+      <ion-row>
+        <ion-buttons>
+
+          <ion-col col-7>FROM DATE:{{startDate}}</ion-col>
+          <ion-col col-5>TOTAL:{{total}}</ion-col>
+
+        </ion-buttons>
+      </ion-row>
+    </ion-grid>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card *ngFor="let entrie of claim; let i = index" (click)="openExpOrJourney(entrie, i)">
+
+    <ion-card-content class="card-text" no-margin no-padding>
+      <ion-row>
+        <ion-col col-sm-2>
+          <img src="{{entrie.imageURL}}" class="src">
+        </ion-col>
+
+        <ion-col col-sm-3>
+          {{entrie.date}}
+        </ion-col>
+
+        <ion-col col-sm-4>
+          {{entrie.type||((+entrie.distance).toFixed(1))}}
+        </ion-col>
+
+        <ion-col col-sm-3>
+          £{{(entrie.price)||((entrie.distance)*0.11).toFixed(2)}}
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

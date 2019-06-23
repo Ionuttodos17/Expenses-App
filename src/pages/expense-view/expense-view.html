@@ -1,0 +1,68 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Expense {{index}} </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+      <ion-list>
+
+        <ion-row>
+          <ion-col>
+            <img [src]= "picture">
+          </ion-col>
+        </ion-row>
+
+        <ion-item>
+          <ion-label>
+            <ion-icon name="document" color="newColour" item-left big></ion-icon>
+          </ion-label>
+          <ion-input item-right
+                     placeholder="Description"
+                     [(ngModel)]="expense.description"
+                     name="description"
+                     ngModel
+                     required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <ion-icon name="pricetag" color="newColour" item-left></ion-icon>
+          </ion-label>
+          <ion-input item-right
+                     type="number"
+                     placeholder="Price"
+                     [(ngModel)]="expense.price"
+                     name="price"
+                     ngModel
+                     required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Expense Type</ion-label>
+          <ion-input item-right
+                     placeholder="Price"
+                     [(ngModel)]="expense.type"
+                     name="type"
+                     ngModel
+                     required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <ion-icon name="calendar" color="newColour" item-left></ion-icon>
+          </ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="expense.date" name="myDate" ngModel required ></ion-datetime>
+        </ion-item>
+
+      </ion-list>
+
+
+
+  </ion-content>
+
+

@@ -1,0 +1,123 @@
+
+<ion-header>
+
+  <ion-navbar color="headerBackground">
+
+    <ion-buttons left>
+      <button ion-button icon-only (click)="onOpenMenu()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>Settings</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form #h="ngForm" (ngSubmit)="onSubmit(h)">
+
+    <ion-list>
+      <ion-item>
+        <ion-label>
+          <ion-icon name="person" color="newColour" item-left></ion-icon>
+        </ion-label>
+        <ion-input item-right
+                   type="text"
+                   placeholder="Your Name"
+                   [(ngModel)]="uName"
+                   name="uName"
+                   ngModel
+                   required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <ion-icon name="people" color="newColour" item-left></ion-icon>
+        </ion-label>
+        <ion-input item-right
+                   type="text"
+                   placeholder="Company Name"
+                   [(ngModel)]="companyName"
+                   name="companyName"
+                   ngModel
+                   required></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label>
+          <ion-icon name="logo-usd" color="newColour" item-left></ion-icon>
+        </ion-label>
+        <ion-input item-right
+                   type="pound"
+                   placeholder="Rate per mile"
+                   [(ngModel)]="rate"
+                   name="rate"
+                   ngModel
+                   required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <ion-icon name="car" color="newColour" item-left></ion-icon>
+        </ion-label>
+        <ion-input item-right
+                   type="text"
+                   placeholder="Registration Number"
+                   [(ngModel)]="regNumber"
+                   name="regNumber"
+                   ngModel
+                   required></ion-input>
+      </ion-item>
+
+
+    <ion-item>
+      <ion-label>
+        <ion-icon name="car" color="newColour" item-left></ion-icon>
+      </ion-label>
+      <ion-input item-right
+                 type="date"
+                 placeholder="MOT Expire Date"
+                 [(ngModel)]="motExpDate"
+                 name="motExpDate"
+                 ngModel
+                 required></ion-input>
+    </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <ion-icon name="car" color="newColour" item-left></ion-icon>
+        </ion-label>
+        <ion-input item-right
+                   type="date"
+                   placeholder="Insurance Expire Date"
+                   [(ngModel)]="insExpDate"
+                   name="insExpDate"
+                   ngModel
+                   required></ion-input>
+      </ion-item>
+
+    </ion-list>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-1>
+        </ion-col>
+        <ion-col>
+          <button ion-button
+                  color="secondary"
+                  block
+                  type="submit"
+                  [disabled]="!h.valid ">Save changes
+          </button>
+        </ion-col>
+        <ion-col col-1>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+</ion-content>

@@ -1,0 +1,90 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>journeyView</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <!--
+      <div id="floating-panel">
+        <b>Start: </b>
+        <ion-item>
+          <ion-input left float-left  [(ngModel)]="start" id="start" (change)="calculateAndDisplayRoute()"></ion-input>
+        </ion-item>
+        <b>End: </b>
+        <ion-item>
+          <ion-input left float-left [(ngModel)]="end" id="end" (change)="calculateAndDisplayRoute()"></ion-input>
+        </ion-item><br>
+        <ion-item>
+          <b>distance: {{distance}}</b>
+        </ion-item>
+      </div>
+      <div #map id="map"></div>
+
+    -->
+    <div #map id="map"></div>
+
+      <ion-list>
+
+        <ion-item>
+          <ion-label floating>From</ion-label>
+          <ion-input
+            [(ngModel)]="journey.from"
+            name="end"
+            ngModel
+            required
+            (change)="calculateAndDisplayRoute()"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>To</ion-label>
+          <ion-input
+            [(ngModel)]="journey.to"
+            name="end"
+            ngModel
+            required
+            (change)="calculateAndDisplayRoute()"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Description</ion-label>
+          <ion-textarea
+            name="description"
+            [(ngModel)] = "journey.description"
+            ngModel
+            required></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Distance</ion-label>
+          <ion-textarea
+            [(ngModel)]="journey.distance"
+            name="distance"
+            ngModel
+            required></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Date</ion-label>
+          <ion-datetime
+            [(ngModel)]="journey.date"
+            displayFormat="MM/DD/YYYY"
+            ngModel
+            name ="myDate"
+            required></ion-datetime>
+        </ion-item>
+
+      </ion-list>
+
+
+
+  </ion-content>
+
+
+
+
